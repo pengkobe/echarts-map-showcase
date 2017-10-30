@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <script type="text/javascript" src="js/echarts.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <title></title>
+    <script>
+        function goBackChinaMap() {
+            $('#china_map').css('display', 'block');
+            $('#city_map').css('display', 'none');
+            $('#partition_map').css('display', 'none');
+            $('#proe_map').css('display', 'none');
+        }
+    </script>
+    <style>
+        #china_map,
+        #partition_map,
+        #city_map,
+        #proe_map {
+            margin: 0 auto;
+            position: absolute;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="china_map" class="maparea" style="display: block;height:500px;width:375px"></div>
+    <div id="partition_map" class="maparea" style="display: none;height:500px"></div>
+    <div id="proe_map" class="maparea" style="display: none;height:500px"></div>
+    <div id="city_map" class="maparea" style="display: none;height:500px"></div>
+    
+    <div class="retPro" style="z-index:999;position: absolute;top:50px;left:10px;display: block;">
+        <a href="javascript:void(0);" onclick="goBackChinaMap()" style="height:30px;background:#fff;line-height: 30px;border:1px solid #ccc;padding:5px 10px;margin-left:20px;border-radius:5px;cursor: pointer;color:#393939;text-decoration:none;">
+            返回全国
+        </a>
+    </div>
+    <script type="text/javascript" src="map.js"></script>
+    <script>
+        var winWidth = document.body.scrollWidth;
+        var winHeight = document.body.scrollHeight;
+        var map = document.getElementsByClassName('maparea');
+        for (var i = 0; i < map.length; i++) {
+            map[i].style.width = winWidth  + 'px';
+            map[i].style.height = winHeight - 30 + 'px';
+        }
+    </script>
+</body>
+
+</html>
